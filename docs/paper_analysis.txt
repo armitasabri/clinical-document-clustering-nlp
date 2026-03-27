@@ -1,0 +1,32 @@
+analysing the paper under title: Clinical Documents Clustering Based on Medication/Symptom Names Using Multi-View Nonnegative Matrix Factorization
+
+like the text clustering notebook this paper focuesd on extracting valuable words from clinical texts and cluster the papers with same topic and we aim to cluster clinical documents 
+into meaningful groups using machine learning algorithms.
+This paper focused on finding symptoms and medications words specifically whereas we haven't defined any specific rule for finding these special words and we focused on extracting 
+only nouns (further I included adjectives as well).
+Nonnegative Matrix Factorization (NMF) is a common factorization technique employed in the paper and the notebook for clustering purposes. Both approaches use NMF to decompose the
+term-document matrix and identify hidden topics or clusters.
+The notebook and the paper both have preprocessing step: we cleaned the text from stopwords and punctuation and extracted the nouns and (adjectives)
+but the paper extracted symptoms and medications.
+to show our words as numerical values we both use TF-IDF.
+we both use clustering evaluation metrics. While the paper uses Normalized Mutual Information (NMI) and accuracy for certain datasets, we evaluated clusters using visualization and 
+topic word analysis.
+so to sum up the similarities was the clustering objective, considering clinical text, use of NMF, text Preprocessing and having evaluation metrics
+Differences:
+Multi-View NMF: the paper use multi-view NMF and compare that to NMF while the notebook only focused on NMF . if we add the multi-view NMF this notebook will look much similar to 
+the paper.other differences was feature extraction:
+the mentioned paper extracts specific semantic features, such as symptom and medication names, using tools like MetaMap and MedEx to generate multiple views for clustering.but we 
+focuses on nouns and adjectives from the text and we used simpler feature extraction techniques.
+considering the datasets that we chose also points to another differences:
+this paper uses two specific datasets from i2b2 NLP challenges (2009 and 2014 clinical notes datasets) but we used a smaller, less specialized set of clinical case report documents 
+for general-purpose clustering. and also paper compares the result they obtained from these 2 different datasets together and they showed the differences in table 2 where they construct 
+the sample-feature matrices.
+the paper implemented advanced tools (like Stanford CoreNLP, MetaMap, MedEx) to preprocess and annotate clinical notes. They also handle negations and specific semantic features. 
+like they didn't consider medication that have negative words before and after it. for example avoid, deny, cannot and post negation words like free. 
+our preprocessing is more generalized, using Python libraries like NLTK for tokenization and lemmatization. we didn't consider which medical term to drop regarding the words coming before 
+or after.
+the clustering techniques: the paper extends the methodology to multi-view learning, enabling clustering based on multiple types of features.
+but in the notebook we rely on single-view clustering methods (e.g., basic NMF and later Word2Vec embeddings).
+Evaluation:
+the mentioned paper evaluate the effectiveness of different clustering techniques (NMF vs. multi-view NMF) and feature types (e.g., symptom/medication names vs. words).
+we focused more on visualization and qualitative analysis of clusters rather than extensive evaluation metrics.
